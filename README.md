@@ -56,6 +56,9 @@ which is the unikernel itself, plus a dummy initramfs file that Qubes requires:
 
 Copy `vmlinuz` to `/var/lib/qubes/vm-kernels/mirage-firewall` directory in dom0, e.g. (if `dev` is the AppVM where you built it):
 
+This is how you copy files to dom0:
+`qvm-run --pass-io <src-vm> 'cat /path/to/file_in_src_domain' > /path/to/file_name_in_dom0`
+
     [tal@dom0 ~]$ mkdir -p /var/lib/qubes/vm-kernels/mirage-firewall/
     [tal@dom0 ~]$ cd /var/lib/qubes/vm-kernels/mirage-firewall/
     [tal@dom0 mirage-firewall]$ qvm-run -p dev 'cat mirage-firewall/vmlinuz' > vmlinuz
